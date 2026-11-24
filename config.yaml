@@ -1,0 +1,30 @@
+# portwatch-vi-rss configuration. Every key is optional; the values below are the defaults.
+
+# Address the HTTP server binds to (ip:port). Use 0.0.0.0 inside Docker.
+listen: "0.0.0.0:8080"
+
+# Where the news comes from, and the site that article links point to.
+tracker_url: "https://portwatch-vi.xyz/data/tracker.json"
+site_url: "https://portwatch-vi.xyz/"
+
+# Public base URL of this service (e.g. https://feeds.example.com), used for
+# the feeds' self links. Leave empty to derive it from each request.
+public_url: ""
+
+# How often to poll tracker.json. Upstream refreshes about every 3 hours and
+# polls use conditional requests (ETag / Last-Modified). Minimum 1m.
+refresh_interval: 15m
+http_timeout: 30s
+user_agent: "portwatch-vi-rss/1.0 (+feed generator)"
+
+# Maximum number of entries per feed (0 = all).
+max_items: 50
+
+# Include the full article (image, body, sources). false = summary only.
+full_content: true
+
+feed:
+  title: "PortWatch VI news"
+  description: "Takedowns, leaks, legal news, scams and real progress on running GTA VI on PC."
+  author: "PortWatch VI"
+  language: "en"

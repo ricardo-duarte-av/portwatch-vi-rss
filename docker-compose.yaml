@@ -1,0 +1,11 @@
+services:
+  portwatch-vi-rss:
+    image: ghcr.io/ricardo-duarte-av/portwatch-vi-rss:latest
+    # Or build locally instead of pulling:
+    # build: .
+    container_name: portwatch-vi-rss
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config.yaml:/etc/portwatch-vi-rss/config.yaml:ro
